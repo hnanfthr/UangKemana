@@ -72,4 +72,7 @@ if (isset($_GET['code'])) {
     header("Location: " . $client->createAuthUrl());
     exit;
 }
+
 ?>
+
+file ini masukin ke folder actions
