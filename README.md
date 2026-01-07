@@ -2,6 +2,8 @@
 
 Aplikasi manajemen keuangan pribadi berbasis web yang membantu pengguna mencatat pemasukan, pengeluaran, serta memantau arus kas (cashflow) dengan visualisasi grafik yang interaktif.
 
+🔴 **LIVE DEMO:** [Klik Disini buat Coba Aplikasinya](http://uangkemana.page.gd)
+
 ## 🚀 Fitur Unggulan
 
 * **Google Login (OAuth):** Masuk dengan cepat dan aman menggunakan akun Google.
