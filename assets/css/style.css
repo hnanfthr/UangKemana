@@ -1,0 +1,395 @@
+/* File: assets/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #27ae60;
+    --primary-dark: #219150;
+    --text-dark: #2c3e50;
+    --text-grey: #7f8c8d;
+    --bg-light: #f4f6f8;
+    --white: #ffffff;
+    --danger: #e74c3c;
+    --warning: #f1c40f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+/* --- SPLIT SCREEN LAYOUT (LOGIN & REGISTER) --- */
+.split-screen {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* BAGIAN KIRI (GAMBAR) */
+.left-pane {
+    width: 50%;
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.left-pane img {
+    width: 80%;
+    max-width: 450px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    animation: float 6s ease-in-out infinite;
+}
+
+.left-pane h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; }
+.left-pane p { font-size: 1rem; opacity: 0.9; line-height: 1.6; max-width: 80%; }
+
+/* BAGIAN KANAN (FORM) */
+.right-pane {
+    width: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 380px;
+}
+
+.auth-box h1 { font-size: 2rem; color: #2c3e50; margin-bottom: 5px; font-weight: 800; }
+.auth-box p { color: #7f8c8d; margin-bottom: 30px; }
+
+/* INPUT STYLE */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 50px; /* Space buat ikon */
+    border: 2px solid #eee;
+    background: #f9f9f9;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 5px 20px rgba(39, 174, 96, 0.1);
+    outline: none;
+}
+
+.input-group input:focus + i { color: var(--primary); }
+
+/* TOMBOL */
+.btn-block {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-block:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ANIMASI FLOAT */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 900px) {
+    .left-pane { display: none; }
+    .right-pane { width: 100%; }
+}
+
+/* --- STYLE DASHBOARD (BIAR TETAP RAPI) --- */
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.card {
+    background: white; border-radius: 16px; padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 20px;
+}
+.btn-primary {
+    background: var(--primary); color: white; padding: 10px 20px;
+    border-radius: 8px; border: none; cursor: pointer;
+}
+.form-input {
+    width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
+.badge { padding: 5px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; }
+.bg-makan { background: #ffecec; color: #e74c3c; }
+.bg-transport { background: #e8f4fd; color: #3498db; }
+.bg-hobi { background: #fff9e6; color: #f1c40f; }
+.bg-tagihan { background: #f5eef8; color: #9b59b6; }
+.bg-lainnya { background: #f4f6f6; color: #7f8c8d; }
+
+/* --- DASHBOARD SUMMARY CARDS --- */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.icon-red { background: #ffecec; color: #e74c3c; }
+.icon-blue { background: #e8f4fd; color: #3498db; }
+
+/* --- MODAL (POP UP) STYLE - UPDATE ANIMASI --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Gelap transparan */
+    backdrop-filter: blur(5px);      /* Efek blur di background */
+    z-index: 999;
+
+    /* ANIMASI FADE */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; /* Gak bisa diklik pas ngumpet */
+    transition: all 0.3s ease-in-out;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    position: relative;
+
+    /* ANIMASI ZOOM / BOUNCE */
+    transform: scale(0.7); /* Mulai dari kecil */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1); /* Ukuran normal pas aktif */
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: #f4f6f8;
+    border: none;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    transition: 0.3s;
+}
+
+.close-modal:hover { background: #e74c3c; color: white; }
+
+/* Tombol Tambah Floating */
+.btn-add-new {
+    background: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    cursor: pointer;
+    border: none;
+}
+.btn-add-new:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4); }
+
+/* --- MODERN FORM INPUTS (DATE & SELECT) --- */
+
+/* 1. Custom Style buat SELECT (Kategori) */
+select.form-input {
+    appearance: none; /* Hilangkan panah bawaan browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    
+    /* Tambahkan Panah Custom (SVG) di kanan */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232c3e50%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+    
+    padding-right: 40px; /* Kasih ruang biar teks gak nabrak panah */
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+select.form-input:hover {
+    background-color: #f1f1f1;
+    border-color: #ccc;
+}
+
+select.form-input:focus {
+    border-color: var(--primary);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.1);
+}
+
+/* 2. Custom Style buat DATE (Tanggal) */
+input[type="date"].form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #f9f9f9;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    
+    /* Ikon Kalender Custom di Background (Kiri) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237f8c8d'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* Ikon di kanan */
+    background-size: 20px;
+}
+
+/* Modifikasi Ikon Bawaan Browser (Biar transparan tapi tetep bisa diklik) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0; /* Sembunyikan ikon asli yang jelek */
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+}
+
+input[type="date"].form-input:hover {
+    background-color: #f1f1f1;
+}
+
+input[type="date"].form-input:focus {
+    background-color: white;
+    border-color: var(--primary);
+}
+
+/* Biar Option di Select lebih rapi pas dibuka */
+option {
+    padding: 10px;
+    font-weight: 500;
+}
+
+/* --- GOOGLE LOGIN BUTTON --- */
+.btn-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    text-decoration: none; /* Penting karena ini link <a> */
+}
+
+.btn-google:hover {
+    background: #f8f9fa;
+    border-color: #c0c0c0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn-google img {
+    width: 20px;
+    height: 20px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
+    margin: 20px 0;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+.separator::before { margin-right: 10px; }
+.separator::after { margin-left: 10px; }
