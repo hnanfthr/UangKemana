@@ -75,4 +75,5 @@ if (isset($_GET['code'])) {
 
 ?>
 
-file ini masukin ke folder actions
+// file ini masukin ke folder actions
+
